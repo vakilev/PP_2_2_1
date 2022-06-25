@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class UserServiceImp implements UserService {
 
    @Autowired
@@ -24,6 +25,11 @@ public class UserServiceImp implements UserService {
    @Override
    public List<User> listUsers() {
       return userDao.listUsers();
+   }
+
+   @Override
+   public User getOwner(String model, int series) {
+      return userDao.getOwner(model, series);
    }
 
 }
